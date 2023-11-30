@@ -469,6 +469,7 @@ switch ($action) {
             }
         }
 
+        
         if (isset($_POST['continue'])) {
             $codigoVentaZapatilla = $_POST['codigoVentaZapatilla'];
             $codigoZapatilla = $_POST['codigoZapatilla'];
