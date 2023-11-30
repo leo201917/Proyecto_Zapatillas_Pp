@@ -450,6 +450,7 @@ switch ($action) {
         case "DetalleVentaZapatilla-add":
             
         if (isset($_POST['add'])) {
+            
             $codigoVentaZapatilla = $_POST['codigoVentaZapatilla'];
             $codigoZapatilla = $_POST['codigoZapatilla'];
             $cantidad = $_POST['cantidad'];
@@ -489,10 +490,15 @@ switch ($action) {
                 header("Location: ../config/PrincipalAcciones.php?action=DetalleVentaZapatilla-add");
             }
         }
+        session_start();      
         require_once "../agregar/DetalleVentaZapatilla-add.php";
 
         break;
-
+        case "DetalleVentaZapatilla-eliminar_item":
+            if (isset($_POST['add'])) {
+            }
+            session_start();      
+        require_once "../agregar/DetalleVentaZapatilla-add.php";
         }
 
         

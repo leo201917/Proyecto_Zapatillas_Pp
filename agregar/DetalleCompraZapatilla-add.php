@@ -130,7 +130,7 @@
             name="codigoCompraZapatilla" id="codigoCompraZapatilla" class="demoInputBox"value =" <?php 
             require_once "../model/CompraZapatilla.php";
             $db_handle_ = new DBController();
-            $comprazapatilla = new CompraZapatilla();
+            // $comprazapatilla = new CompraZapatilla();
             $resultUltimo = $comprazapatilla->getUltimaVenta();
             foreach ($resultUltimo as $k_ => $v_):          
              echo $resultUltimo[$k_]["codigoCompraZapatilla"]; 
