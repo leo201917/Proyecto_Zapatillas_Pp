@@ -6,7 +6,7 @@ class DetalleVentaZapatilla {
     function __construct() {
         $this->db_handle = new DBController();
     }
-    
+    // prueba leonardo
     function addDetalleVentaZapatilla($codigoVentaZapatilla, $codigoZapatilla, $cantidad, $precioUnitario, $subTotalVenta, $igv, $importeTotal) {
         $query = "INSERT INTO detalleventazapatilla (codigoVentaZapatilla, codigoZapatilla, cantidad, precioUnitario, subTotalVenta, igv, importeTotal)
         VALUES (?, ?, ?, ?, ?, ?, ?)";
