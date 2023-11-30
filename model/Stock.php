@@ -8,7 +8,7 @@ class Stock {
     }
     
     function addStock($codigoZapatilla, $stockMinimo, $stockMaximo) {
-        $query = "INSERT INTO Stock (codigoZapatilla, stockMinimo, stockMaximo) 
+        $query = "INSERT INTO stock_limite (codigoZapatilla, stockMinimo, stockMaximo) 
         VALUES (?, ?, ?)";
         $paramType = "sii";
         $paramValue = array(
@@ -20,7 +20,7 @@ class Stock {
     }
 
     function editStock($codigoZapatilla, $stockMinimo, $stockMaximo, $codigoStock) {
-        $query = "UPDATE stock SET codigoZapatilla  = ?, stockMinimo  = ?, stockMaximo  = ? WHERE codigoStock = ?";
+        $query = "UPDATE stock_limite SET codigoZapatilla  = ?, stockMinimo  = ?, stockMaximo  = ? WHERE codigoStock = ?";
         $paramType = "iiii";
         $paramValue = array(
             $codigoZapatilla,
@@ -33,7 +33,7 @@ class Stock {
     }
     
     function deleteStock($codigoStock) {
-        $query = "DELETE FROM stock WHERE codigoStock = ?";
+        $query = "DELETE FROM stock_limite WHERE codigoStock = ?";
         $paramType = "i";
         $paramValue = array(
             $codigoStock
@@ -46,7 +46,7 @@ class Stock {
         CONCAT(Z.marca, ' - ', Z.modelo ,' - ',Z.color, ' - ', Z.talla) AS codigoZapatilla ,
         stockMinimo,
         stockMaximo
-        FROM stock
+        FROM stock_limite
         inner join zapatilla z on z.codigoZapatilla = stock.codigoZapatilla
         WHERE codigoStock = ?";
         $paramType = "i";
@@ -68,7 +68,7 @@ class Stock {
 		-- stockActual,
         stockMinimo,
         stockMaximo
-        FROM stock
+        FROM stock_limite
         inner join zapatilla z on z.codigoZapatilla = stock.codigoZapatilla
          order by codigoStock desc";
         $result = $this->db_handle->runBaseQuery($sql);

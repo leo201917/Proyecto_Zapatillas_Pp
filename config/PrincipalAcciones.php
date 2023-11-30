@@ -242,8 +242,8 @@ switch ($action) {
             $codigoZapatilla = $_POST['codigoZapatilla'];
             $stockMinimo = $_POST['stockMinimo'];
             $stockMaximo = $_POST['stockMaximo'];
-            $stock = new Stock();
-            $insertId = $stock->addStock($codigoZapatilla, $stockMinimo, $stockMaximo);
+            $stock_limite = new Stock();
+            $insertId = $stock_limite->addStock($codigoZapatilla, $stockMinimo, $stockMaximo);
             if (empty($insertId)) {
                 $response = array(
                     "message" => "Problema al agregar un nuevo registro",
@@ -259,13 +259,13 @@ switch ($action) {
 
         case "Stock-edit":
                 $codigoStock = $_GET["codigoStock"];
-                $stock = new Stock();
+                $stock_limite = new Stock();
                 
                 if (isset($_POST['add'])) {
                     $codigoZapatilla = $_POST['codigoZapatilla'];
                     $stockMinimo = $_POST['stockMinimo'];
                     $stockMaximo = $_POST['stockMaximo'];            
-                    $stock->editStock($codigoZapatilla, $stockMinimo, $stockMaximo, $codigoStock);         
+                    $stock_limite->editStock($codigoZapatilla, $stockMinimo, $stockMaximo, $codigoStock);         
                     header("Location: ../html/stock.php");
                 }
                 
@@ -275,11 +275,11 @@ switch ($action) {
 
         case "Stock-delete":
             $stock_codigoStock = $_GET["codigoStock"];
-            $stock = new Stock();
+            $stock_limite = new Stock();
             
-            $stock->deleteStock($stock_codigoStock);
+            $stock_limite->deleteStock($stock_codigoStock);
             
-            $result = $stock->getallStock();
+            $result = $stock_limite->getallStock();
             require_once "../html/stock.php";
             break;
 
